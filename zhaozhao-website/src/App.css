@@ -3,12 +3,14 @@
 @tailwind utilities;
 
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
+
 
 .logo {
   height: 6em;
@@ -44,4 +46,58 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.fullscreen-bg {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+@keyframes swing-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-swing-slow {
+  animation: swing-slow 6s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate(-50%, -10px);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
+.animate-drift {
+  animation: drift 6s ease-in-out infinite;
 }
